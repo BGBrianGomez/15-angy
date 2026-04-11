@@ -12,30 +12,36 @@ const HEADERS = [
 ];
 
 function doPost(e) {
-  const sheet = getSheet();
-  ensureHeaders(sheet);
+  try {
+    const sheet = getSheet();
+    ensureHeaders(sheet);
 
-  const data = parseRequestData(e);
+    const data = parseRequestData(e);
+    saveResponse(sheet, data);
 
-  sheet.appendRow([
-    new Date(),
-    data.name || "",
-    data.attendance === "yes" ? "Si asiste" : "No asiste",
-    data.guests || 0,
-    Array.isArray(data.guestNames) ? data.guestNames.join(", ") : "",
-    data.song || "",
-    data.message || "",
-  ]);
-
-  return ContentService.createTextOutput(
-    JSON.stringify({ ok: true }),
-  ).setMimeType(ContentService.MimeType.JSON);
+    return jsonResponse({ ok: true });
+  } catch (error) {
+    return jsonResponse({ ok: false, error: error.message });
+  }
 }
 
 function doGet() {
-  return ContentService.createTextOutput(
-    JSON.stringify({ ok: true, message: "RSVP endpoint activo" }),
-  ).setMimeType(ContentService.MimeType.JSON);
+  return jsonResponse({ ok: true, message: "RSVP endpoint activo" });
+}
+
+function testDoPost() {
+  const fakeEvent = {
+    parameter: {
+      name: "Prueba local",
+      attendance: "yes",
+      guests: "2",
+      guestNames: JSON.stringify(["Acompanante de prueba"]),
+      song: "Cancion de prueba",
+      message: "Mensaje de prueba",
+    },
+  };
+
+  doPost(fakeEvent);
 }
 
 function getSheet() {
@@ -57,7 +63,18 @@ function parseRequestData(e) {
     };
   }
 
-  return JSON.parse((e && e.postData && e.postData.contents) || "{}");
+  if (e && e.postData && e.postData.contents) {
+    return JSON.parse(e.postData.contents || "{}");
+  }
+
+  return {
+    name: "",
+    attendance: "",
+    guests: 0,
+    guestNames: [],
+    song: "",
+    message: "",
+  };
 }
 
 function parseGuestNames(value) {
@@ -74,6 +91,24 @@ function parseGuestNames(value) {
       })
       .filter(Boolean);
   }
+}
+
+function saveResponse(sheet, data) {
+  sheet.appendRow([
+    new Date(),
+    data.name || "",
+    data.attendance === "yes" ? "Si asiste" : "No asiste",
+    data.guests || 0,
+    Array.isArray(data.guestNames) ? data.guestNames.join(", ") : "",
+    data.song || "",
+    data.message || "",
+  ]);
+}
+
+function jsonResponse(payload) {
+  return ContentService.createTextOutput(JSON.stringify(payload)).setMimeType(
+    ContentService.MimeType.JSON,
+  );
 }
 
 function ensureHeaders(sheet) {
