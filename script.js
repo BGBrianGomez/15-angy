@@ -8,7 +8,7 @@ const eventData = {
   address: "Ubicacion exacta disponible en Google Maps",
   mapsUrl: "https://maps.app.goo.gl/72uMiHDAcjMvQK196",
   rsvpUrl:
-    "https://script.google.com/macros/s/AKfycbwCc67TtDbLwispXl3MfofPOF4RsvVVq3DB7dze0MCah0THkUfZoGMZzWAW8wsf_HvREg/exec",
+    "https://script.google.com/macros/s/AKfycbzMRU7CKJKLtDH36ulBLAb1Wv6UKerpkfjsseOY29RUp1uN7bbtNHvqLrPM-s4ZnV7DTA/exec",
   accentColor: "#d4af37",
 };
 
@@ -228,6 +228,7 @@ async function handleFormSubmit(event) {
   try {
     await fetch(eventData.rsvpUrl, {
       method: "POST",
+      mode: "no-cors",
       body: JSON.stringify(payload),
     });
 
