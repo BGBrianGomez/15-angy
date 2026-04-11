@@ -15,7 +15,7 @@ function doPost(e) {
   const sheet = getSheet();
   ensureHeaders(sheet);
 
-  const data = JSON.parse(e.postData.contents || "{}");
+  const data = parseRequestData(e);
 
   sheet.appendRow([
     new Date(),
@@ -32,11 +32,48 @@ function doPost(e) {
   ).setMimeType(ContentService.MimeType.JSON);
 }
 
+function doGet() {
+  return ContentService.createTextOutput(
+    JSON.stringify({ ok: true, message: "RSVP endpoint activo" }),
+  ).setMimeType(ContentService.MimeType.JSON);
+}
+
 function getSheet() {
   const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
   const existingSheet = spreadsheet.getSheetByName(SHEET_NAME);
 
   return existingSheet || spreadsheet.insertSheet(SHEET_NAME);
+}
+
+function parseRequestData(e) {
+  if (e && e.parameter && Object.keys(e.parameter).length > 0) {
+    return {
+      name: e.parameter.name || "",
+      attendance: e.parameter.attendance || "",
+      guests: Number(e.parameter.guests || 0),
+      guestNames: parseGuestNames(e.parameter.guestNames),
+      song: e.parameter.song || "",
+      message: e.parameter.message || "",
+    };
+  }
+
+  return JSON.parse((e && e.postData && e.postData.contents) || "{}");
+}
+
+function parseGuestNames(value) {
+  if (!value) return [];
+
+  try {
+    const parsedValue = JSON.parse(value);
+    return Array.isArray(parsedValue) ? parsedValue : [];
+  } catch (error) {
+    return String(value)
+      .split(",")
+      .map(function (name) {
+        return name.trim();
+      })
+      .filter(Boolean);
+  }
 }
 
 function ensureHeaders(sheet) {

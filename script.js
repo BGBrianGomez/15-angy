@@ -225,11 +225,16 @@ async function handleFormSubmit(event) {
   submitButton.disabled = true;
   submitButton.textContent = "Enviando...";
 
+  const body = new URLSearchParams({
+    ...payload,
+    guestNames: JSON.stringify(payload.guestNames),
+  });
+
   try {
     await fetch(eventData.rsvpUrl, {
       method: "POST",
       mode: "no-cors",
-      body: JSON.stringify(payload),
+      body,
     });
 
     form.classList.add("hidden");
