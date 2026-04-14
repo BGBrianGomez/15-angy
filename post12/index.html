@@ -205,84 +205,19 @@
 
       <section class="rsvp fade-section section-soft">
         <div class="section-inner rsvp-wrap">
-          <h2 class="section-title">Confirmacion de asistencia ✨</h2>
+          <h2 class="section-title">Confirmación de asistencia ✨</h2>
           <p class="section-copy">
-            Completá este formulario para confirmar si venís a festejar mis 15
-            🎉
+            Tu presencia es muy importante para mí 💕 Por favor, confirmá si
+            podés acompañarme en esta noche tan especial.
           </p>
-
-          <form id="rsvp-form" class="form-card">
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Tu nombre y apellido"
-              required
-              class="field"
-            />
-
-            <div class="field-group align-left">
-              <p class="field-label">¿Vas a venir a festejar conmigo?</p>
-              <div class="radio-row">
-                <label class="radio-option">
-                  <input type="radio" name="attendance" value="yes" checked />
-                  <span>¡Sí, obvio! 🎉</span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="attendance" value="no" />
-                  <span>No voy a poder 😢</span>
-                </label>
-              </div>
-            </div>
-
-            <div id="attendance-fields" class="attendance-fields">
-              <div class="field-group align-left">
-                <label for="guests" class="field-label">
-                  ¿Cuántas personas vienen en total?
-                </label>
-                <p class="field-help">Incluite a vos en este número.</p>
-                <input
-                  id="guests"
-                  name="guests"
-                  type="number"
-                  min="1"
-                  value="1"
-                  required
-                  class="field"
-                />
-              </div>
-
-              <div id="guest-names" class="guest-names"></div>
-
-              <input
-                id="song"
-                name="song"
-                type="text"
-                placeholder="🎵 ¿Qué canción no puede faltar?"
-                class="field"
-              />
-            </div>
-
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              placeholder="¿Querés dejarme un mensaje? (opcional)"
-              class="field field-area"
-            ></textarea>
-
-            <button id="submit-button" type="submit" class="button button-gold">
-              Enviar respuesta
-            </button>
-          </form>
-
-          <div id="rsvp-success" class="success-state hidden">
-            <p class="success-title">¡Gracias por responder! 💖</p>
-            <p class="success-copy">
-              Tu respuesta fue registrada correctamente. ¡Te espero para
-              festejar! ✨
-            </p>
-          </div>
+          <a
+            id="whatsapp-link"
+            class="button button-gold"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Confirmar por WhatsApp
+          </a>
         </div>
       </section>
 

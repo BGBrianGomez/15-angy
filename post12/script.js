@@ -10,12 +10,14 @@ const eventData = {
   rsvpUrl:
     "https://script.google.com/macros/s/AKfycbzMRU7CKJKLtDH36ulBLAb1Wv6UKerpkfjsseOY29RUp1uN7bbtNHvqLrPM-s4ZnV7DTA/exec",
   accentColor: "#d4af37",
+  rsvpPhone: "5493436612949",
 };
 
 function setStaticContent() {
   document.title = `${eventData.title} | ${eventData.names}`;
   document.getElementById("hero-title").textContent = eventData.title;
-  document.getElementById("hero-date-time").textContent = `${eventData.date} · ${eventData.time}`;
+  document.getElementById("hero-date-time").textContent =
+    `${eventData.date} · ${eventData.time}`;
   document.getElementById("detail-date").textContent = eventData.date;
   document.getElementById("detail-time").textContent = eventData.time;
   document.getElementById("detail-venue").textContent = eventData.venue;
@@ -25,9 +27,11 @@ function setStaticContent() {
   const mapsLink = document.getElementById("maps-link");
   mapsLink.href = eventData.mapsUrl;
 
-  document.getElementById("footer-name").textContent = `✨ ${eventData.names} ✨`;
+  document.getElementById("footer-name").textContent =
+    `✨ ${eventData.names} ✨`;
   document.getElementById("footer-name").style.color = eventData.accentColor;
-  document.getElementById("footer-date-time").textContent = `${eventData.date} · ${eventData.time}`;
+  document.getElementById("footer-date-time").textContent =
+    `${eventData.date} · ${eventData.time}`;
   document.getElementById("footer-venue").textContent = eventData.venue;
   document.getElementById("footer-address").textContent = eventData.address;
 }
@@ -104,19 +108,23 @@ function syncGuestInputs() {
   const guestsInput = document.getElementById("guests");
   const guestNamesWrap = document.getElementById("guest-names");
   const totalGuests = Math.max(1, Number(guestsInput.value) || 1);
-  const currentValues = Array.from(guestNamesWrap.querySelectorAll("input")).map(
-    (input) => input.value,
-  );
+  const currentValues = Array.from(
+    guestNamesWrap.querySelectorAll("input"),
+  ).map((input) => input.value);
 
   guestNamesWrap.innerHTML = "";
 
   for (let index = 0; index < totalGuests - 1; index += 1) {
-    guestNamesWrap.appendChild(createGuestInput(index, currentValues[index] || ""));
+    guestNamesWrap.appendChild(
+      createGuestInput(index, currentValues[index] || ""),
+    );
   }
 }
 
 function toggleAttendanceFields() {
-  const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
+  const attendance = document.querySelector(
+    'input[name="attendance"]:checked',
+  )?.value;
   const attendanceFields = document.getElementById("attendance-fields");
   const guestsInput = document.getElementById("guests");
   const guestInputs = document.querySelectorAll("#guest-names input");
@@ -145,16 +153,22 @@ async function handleFormSubmit(event) {
   const form = event.currentTarget;
   const submitButton = document.getElementById("submit-button");
   const successState = document.getElementById("rsvp-success");
-  const attendance = document.querySelector('input[name="attendance"]:checked')?.value || "yes";
+  const attendance =
+    document.querySelector('input[name="attendance"]:checked')?.value || "yes";
   const guestNames =
     attendance === "yes"
-      ? Array.from(document.querySelectorAll("#guest-names input")).map((input) => input.value)
+      ? Array.from(document.querySelectorAll("#guest-names input")).map(
+          (input) => input.value,
+        )
       : [];
 
   const payload = {
     name: document.getElementById("name").value,
     attendance,
-    guests: attendance === "yes" ? Number(document.getElementById("guests").value) || 1 : 0,
+    guests:
+      attendance === "yes"
+        ? Number(document.getElementById("guests").value) || 1
+        : 0,
     guestNames,
     song: attendance === "yes" ? document.getElementById("song").value : "",
     message: document.getElementById("message").value,
@@ -184,23 +198,12 @@ async function handleFormSubmit(event) {
   }
 }
 
-function setupForm() {
-  const form = document.getElementById("rsvp-form");
-  const guestsInput = document.getElementById("guests");
-  const attendanceInputs = document.querySelectorAll('input[name="attendance"]');
-
-  syncGuestInputs();
-  toggleAttendanceFields();
-
-  guestsInput.addEventListener("input", syncGuestInputs);
-  attendanceInputs.forEach((input) => {
-    input.addEventListener("change", () => {
-      syncGuestInputs();
-      toggleAttendanceFields();
-    });
-  });
-
-  form.addEventListener("submit", handleFormSubmit);
+function setupWhatsApp() {
+  const message = encodeURIComponent(
+    `Hola! Confirmo mi asistencia a los 15 de ${eventData.names} 🎉💖 mi documento y mi nombre completo son...`,
+  );
+  document.getElementById("whatsapp-link").href =
+    `https://wa.me/${eventData.rsvpPhone}?text=${message}`;
 }
 
 setStaticContent();
