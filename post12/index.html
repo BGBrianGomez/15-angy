@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis 15 | Angelina</title>
+    <meta
+      name="description"
+      content="Invitacion de 15 de Angelina. Confirmacion, ubicacion y codigo de vestimenta."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell bg-marble">
+      <section class="hero fade-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p id="hero-title" class="eyebrow"></p>
+          <img src="./Angelina.png" alt="Angelina" class="hero-signature" />
+          <div class="hero-meta">
+            <span class="hero-line"></span>
+            <p id="hero-date-time"></p>
+            <span class="hero-line"></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="countdown-section" class="countdown fade-section">
+        <div class="section-overlay"></div>
+        <div class="section-inner countdown-inner">
+          <h2 class="section-title">Faltan…</h2>
+          <div id="countdown-grid" class="countdown-grid"></div>
+        </div>
+      </section>
+
+      <div class="divider" aria-hidden="true">
+        <span class="divider-line"></span>
+        <span class="divider-heart">♡</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <section class="details fade-section section-soft">
+        <div class="section-inner details-grid">
+          <article class="detail-item">
+            <div class="icon-wrap gold">
+              <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+                <path
+                  d="M8 2v3M16 2v3M3 9h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <p class="detail-label">Fecha</p>
+            <p id="detail-date" class="detail-value"></p>
+          </article>
+
+          <article class="detail-item">
+            <div class="icon-wrap gold">
+              <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M12 7v5l3 2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <p class="detail-label">Hora</p>
+            <p id="detail-time" class="detail-value"></p>
+          </article>
+
+          <article class="detail-item">
+            <div class="icon-wrap gold">
+              <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+                <path
+                  d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle cx="12" cy="10" r="2.4" fill="currentColor" />
+              </svg>
+            </div>
+            <p class="detail-label">Lugar</p>
+            <p id="detail-venue" class="detail-value"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="dress-code fade-section card-section">
+        <div class="section-inner narrow">
+          <div class="icon-wrap gold large">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+              <path
+                d="M7 3h10l3 4-3 2v10H7V9L4 7l3-4Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <p class="eyebrow gold-text">Codigo de vestimenta</p>
+          <h2 class="section-title">Elegante Sport</h2>
+          <p class="section-copy">
+            La propuesta es un look elegante y cuidado, pero relajado.
+          </p>
+
+          <div class="notice-grid single">
+            <article class="notice-card">
+              <div class="notice-head gold-text">
+                <svg viewBox="0 0 24 24" class="icon small" aria-hidden="true">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="M8 16 16 8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span>Importante</span>
+              </div>
+              <p>Prohibido asistir con prendas en colores verdes o rojos.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider" aria-hidden="true">
+        <span class="divider-line"></span>
+        <span class="divider-heart">♡</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <section class="location fade-section card-section">
+        <div class="section-inner narrow">
+          <div class="icon-wrap gold large">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+              <path
+                d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle cx="12" cy="10" r="2.4" fill="currentColor" />
+            </svg>
+          </div>
+
+          <h2 class="section-title">Lugar del evento</h2>
+          <p id="location-venue" class="location-venue"></p>
+          <p id="location-address" class="location-address"></p>
+
+          <a
+            id="maps-link"
+            class="button button-outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver en Google Maps
+          </a>
+        </div>
+      </section>
+
+      <div class="divider" aria-hidden="true">
+        <span class="divider-line"></span>
+        <span class="divider-heart">♡</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <section class="rsvp fade-section section-soft">
+        <div class="section-inner rsvp-wrap">
+          <h2 class="section-title">Confirmacion de asistencia ✨</h2>
+          <p class="section-copy">
+            Completá este formulario para confirmar si venís a festejar mis 15
+            🎉
+          </p>
+
+          <form id="rsvp-form" class="form-card">
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Tu nombre y apellido"
+              required
+              class="field"
+            />
+
+            <div class="field-group align-left">
+              <p class="field-label">¿Vas a venir a festejar conmigo?</p>
+              <div class="radio-row">
+                <label class="radio-option">
+                  <input type="radio" name="attendance" value="yes" checked />
+                  <span>¡Sí, obvio! 🎉</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="attendance" value="no" />
+                  <span>No voy a poder 😢</span>
+                </label>
+              </div>
+            </div>
+
+            <div id="attendance-fields" class="attendance-fields">
+              <div class="field-group align-left">
+                <label for="guests" class="field-label">
+                  ¿Cuántas personas vienen en total?
+                </label>
+                <p class="field-help">Incluite a vos en este número.</p>
+                <input
+                  id="guests"
+                  name="guests"
+                  type="number"
+                  min="1"
+                  value="1"
+                  required
+                  class="field"
+                />
+              </div>
+
+              <div id="guest-names" class="guest-names"></div>
+
+              <input
+                id="song"
+                name="song"
+                type="text"
+                placeholder="🎵 ¿Qué canción no puede faltar?"
+                class="field"
+              />
+            </div>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="¿Querés dejarme un mensaje? (opcional)"
+              class="field field-area"
+            ></textarea>
+
+            <button id="submit-button" type="submit" class="button button-gold">
+              Enviar respuesta
+            </button>
+          </form>
+
+          <div id="rsvp-success" class="success-state hidden">
+            <p class="success-title">¡Gracias por responder! 💖</p>
+            <p class="success-copy">
+              Tu respuesta fue registrada correctamente. ¡Te espero para
+              festejar! ✨
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer fade-section">
+        <div id="footer-name" class="footer-name"></div>
+        <div id="footer-date-time" class="footer-meta"></div>
+        <div id="footer-venue" class="footer-meta"></div>
+        <div id="footer-address" class="footer-meta"></div>
+        <div class="footer-line"></div>
+        <div class="footer-copy">Te esperamos para celebrar juntos</div>
+      </footer>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

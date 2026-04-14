@@ -1,60 +1,15 @@
 const eventData = {
   title: "Mis 15",
   names: "Angelina",
-  eventDateTime: "2026-05-23T21:00:00",
+  eventDateTime: "2026-05-24T00:00:00",
   date: "23 de Mayo de 2026",
-  time: "21 hs",
+  time: "00 hs",
   venue: "SALON LA RIBERA",
   address: "Ubicacion exacta disponible en Google Maps",
   mapsUrl: "https://maps.app.goo.gl/72uMiHDAcjMvQK196",
   rsvpUrl:
     "https://script.google.com/macros/s/AKfycbzMRU7CKJKLtDH36ulBLAb1Wv6UKerpkfjsseOY29RUp1uN7bbtNHvqLrPM-s4ZnV7DTA/exec",
   accentColor: "#d4af37",
-};
-
-const timelineSteps = [
-  {
-    time: "21:00 hs",
-    title: "Bienvenida",
-    description: "Recibimos a nuestros invitados",
-    icon: "sparkles",
-  },
-  {
-    time: "22:00 hs",
-    title: "Cena",
-    description: "Compartimos una noche especial",
-    icon: "heart",
-  },
-  {
-    time: "00:00 hs",
-    title: "Fiesta",
-    description: "Bailamos y celebramos mis 15",
-    icon: "party",
-  },
-];
-
-const iconMarkup = {
-  sparkles: `
-    <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
-      <path d="M12 3l1.7 4.3L18 9l-4.3 1.7L12 15l-1.7-4.3L6 9l4.3-1.7L12 3Z" fill="currentColor"></path>
-      <path d="M19 14l.9 2.1L22 17l-2.1.9L19 20l-.9-2.1L16 17l2.1-.9L19 14Z" fill="currentColor"></path>
-      <path d="M5 15l.9 2.1L8 18l-2.1.9L5 21l-.9-2.1L2 18l2.1-.9L5 15Z" fill="currentColor"></path>
-    </svg>
-  `,
-  heart: `
-    <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
-      <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-  `,
-  party: `
-    <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
-      <path d="M8 3h8v4a4 4 0 0 1-8 0V3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-      <path d="M12 11v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-      <path d="M8 21h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-      <path d="M8.5 7h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-      <path d="M18 5h.01M19 10h.01M5 6h.01M4 11h.01" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
-    </svg>
-  `,
 };
 
 function setStaticContent() {
@@ -111,23 +66,6 @@ function renderCountdown() {
           <div class="countdown-value">${value}</div>
           <div class="countdown-label">${label}</div>
         </div>
-      `,
-    )
-    .join("");
-}
-
-function renderTimeline() {
-  const grid = document.getElementById("timeline-grid");
-
-  grid.innerHTML = timelineSteps
-    .map(
-      (step) => `
-        <article class="timeline-card">
-          <div class="icon-wrap">${iconMarkup[step.icon]}</div>
-          <p class="timeline-time">${step.time}</p>
-          <h3 class="timeline-title">${step.title}</h3>
-          <p class="timeline-description">${step.description}</p>
-        </article>
       `,
     )
     .join("");
@@ -267,7 +205,6 @@ function setupForm() {
 
 setStaticContent();
 renderCountdown();
-renderTimeline();
 setupFadeSections();
 setupForm();
 
