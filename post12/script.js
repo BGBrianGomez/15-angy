@@ -200,7 +200,7 @@ async function handleFormSubmit(event) {
 
 function setupWhatsApp() {
   const message = encodeURIComponent(
-    `Hola! Confirmo mi asistencia a los 15 de ${eventData.names} 🎉💖 mi documento y mi nombre completo son...`,
+    `Hola! Confirmo mi asistencia a los 15 de ${eventData.names}!! Mi nombre completo y mi documento son...`,
   );
   document.getElementById("whatsapp-link").href =
     `https://wa.me/${eventData.rsvpPhone}?text=${message}`;
