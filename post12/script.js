@@ -209,6 +209,6 @@ function setupWhatsApp() {
 setStaticContent();
 renderCountdown();
 setupFadeSections();
-setupForm();
+setupWhatsApp();
 
 window.setInterval(renderCountdown, 1000);
