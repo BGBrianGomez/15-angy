@@ -58,7 +58,7 @@ const iconMarkup = {
 
 function setStaticContent() {
   document.title = `${eventData.title} | ${eventData.names}`;
-  document.getElementById("hero-title").textContent = eventData.title.toUpperCase();
+  document.getElementById("hero-title").textContent = eventData.title;
   document.getElementById("hero-date-time").textContent = `${eventData.date} · ${eventData.time}`;
   document.getElementById("detail-date").textContent = eventData.date;
   document.getElementById("detail-time").textContent = eventData.time;

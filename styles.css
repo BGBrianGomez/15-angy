@@ -113,8 +113,11 @@ textarea {
 }
 
 .hero-content .eyebrow {
-  font-size: clamp(1rem, 2.8vw, 1.55rem);
-  letter-spacing: 0.42em;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
 .hero-name {
@@ -125,7 +128,7 @@ textarea {
 }
 
 .hero-signature {
-  width: min(84vw, 30rem);
+  width: min(88vw, 34rem);
   margin: 0 auto 2.5rem;
   filter: invert(1) brightness(1.18);
   opacity: 0.96;
