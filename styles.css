@@ -119,6 +119,13 @@ textarea {
   letter-spacing: 0.08em;
 }
 
+.hero-signature {
+  width: min(84vw, 30rem);
+  margin: 0 auto 2.5rem;
+  filter: invert(1) brightness(1.18);
+  opacity: 0.96;
+}
+
 .hero-meta {
   display: flex;
   align-items: center;
